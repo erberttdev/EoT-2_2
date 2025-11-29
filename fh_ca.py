@@ -1,4 +1,3 @@
-
 from fh_id_data import fh_id_data
 import os
 from supabase import create_client, Client
@@ -67,14 +66,15 @@ def sum_data(fh_event_data):
 
 def apply_tolerance(fh_sum_data,threshold,relax):
     fh_q_data = {}
+    fh_q_data['sum_period1'] = fh_sum_data['sum_period1']
     fh_q_data['sum_expected_goals_1st'] = (fh_sum_data['sum_expected_goals_1st'] - threshold[relax]['sum_expected_goals_1st'][0] , fh_sum_data['sum_expected_goals_1st'] + threshold[relax]['sum_expected_goals_1st'][1] )
     fh_q_data['sum_1st_totalshotsongoal'] = (fh_sum_data['sum_1st_totalshotsongoal'] - threshold[relax]['sum_1st_totalshotsongoal'][0] , fh_sum_data['sum_1st_totalshotsongoal'] + threshold[relax]['sum_1st_totalshotsongoal'][1] )
     fh_q_data['sum_1st_shotsongoal'] = (fh_sum_data['sum_1st_shotsongoal'] - threshold[relax]['sum_1st_shotsongoal'][0] , fh_sum_data['sum_1st_shotsongoal'] + threshold[relax]['sum_1st_shotsongoal'][1] )
     fh_q_data['sum_1st_totalshotsinsidebox'] = (fh_sum_data['sum_1st_totalshotsinsidebox'] - threshold[relax]['sum_1st_totalshotsinsidebox'][0] , fh_sum_data['sum_1st_totalshotsinsidebox'] + threshold[relax]['sum_1st_totalshotsinsidebox'][1] )
     fh_q_data['sum_1st_finalthirdentries'] = (fh_sum_data['sum_1st_finalthirdentries'] - threshold[relax]['sum_1st_finalthirdentries'][0] , fh_sum_data['sum_1st_finalthirdentries'] + threshold[relax]['sum_1st_finalthirdentries'][1] )
-    fh_q_data['sum_1st_cornerkicks'] = (fh_sum_data['sum_1st_cornerkicks'] - threshold[relax]['sum_1st_cornerkicks'][0] , fh_sum_data['sum_1st_cornerkicks'] + threshold[relax]['sum_1st_cornerkicks'][1] )
+    fh_q_data['sum_1st_cornerkicks'] = (fh_sum_data['sum_1st_cornerkicks'] - threshold[relax]['sum_1st_cornerkicks'][0] , fh_sum_data['sum_1st_cornerkicks'] + threshold[relax]['sum_1st_cornerkicks'][1], fh_sum_data['sum_1st_cornerkicks'] )
     fh_q_data['sum_1st_freekicks'] = (fh_sum_data['sum_1st_freekicks'] - threshold[relax]['sum_1st_freekicks'][0] , fh_sum_data['sum_1st_freekicks'] + threshold[relax]['sum_1st_freekicks'][1] )
-    fh_q_data['sum_1st_yellowcards'] = (fh_sum_data['sum_1st_yellowcards'] - threshold[relax]['sum_1st_yellowcards'][0] , fh_sum_data['sum_1st_yellowcards'] + threshold[relax]['sum_1st_yellowcards'][1] )
+    fh_q_data['sum_1st_yellowcards'] = (fh_sum_data['sum_1st_yellowcards'] - threshold[relax]['sum_1st_yellowcards'][0] , fh_sum_data['sum_1st_yellowcards'] + threshold[relax]['sum_1st_yellowcards'][1], fh_sum_data['sum_1st_yellowcards'] )
 
     return fh_q_data
 
@@ -129,24 +129,47 @@ def c_amostral(fh_sum_data, category):
         i += 1
 
     ca_value = ca_temp
-    return ca_value
+    return ca_value, fh_q_data
 
-def campo_amostral(event_id):
+def get_fh_sum(event_id):
     fh_event_data = fh_id_data(event_id)
     fh_sum_data = sum_data(fh_event_data)
-    ca_gols = c_amostral(fh_sum_data, 'gols')
-    ca_corners = c_amostral(fh_sum_data, 'corners')
-    ca_yellowcards = c_amostral(fh_sum_data, 'yellowcards')
+
+    return fh_sum_data, fh_event_data
+
+def get_ca_q_data(fh_sum_data):
+    ca_gols, fh_q_gols = c_amostral(fh_sum_data, 'gols')
+    ca_corners, fh_q_corners = c_amostral(fh_sum_data, 'corners')
+    ca_yellowcards, fh_q_yellowcards = c_amostral(fh_sum_data, 'yellowcards')
 
     dict_campo_amostral = {
         'gols': ca_gols,
         'corners': ca_corners,
         'yellowcards': ca_yellowcards
     }
-    return dict_campo_amostral
+
+    fh_q_dict = {
+        'gols': fh_q_gols,
+        'corners': fh_q_corners,
+        'yellowcards': fh_q_yellowcards
+    }
+
+    return dict_campo_amostral, fh_q_dict
+
+
+
+def campo_amostral(event_id):
+    fh_sum_data, fh_event_data  = get_fh_sum(event_id)
+    dict_campo_amostral, fh_q_dict = get_ca_q_data(fh_sum_data)
+
+    
+    return dict_campo_amostral, fh_q_dict
+
+
+
 
 
 if __name__ == "__main__":
 
     event_id = input("Digite o event ID: ")
-    print(campo_amostral(event_id))
+    print(campo_amostral(event_id)[0])
