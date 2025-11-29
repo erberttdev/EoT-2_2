@@ -1,0 +1,37 @@
+# Dependências para o Sistema de Múltiplos Modelos de Machine Learning
+# Versões específicas para garantir compatibilidade
+requests
+bs4
+dotenv
+supabase
+selenium
+webdriver_manager
+# Core data science
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Machine Learning - Scikit-learn
+scikit-learn>=1.1.0
+
+# Model persistence
+# joblib>=1.2.0
+
+# Logging e utilitários (assumindo que existe um módulo utils)
+# Se não existir, você pode usar logging padrão do Python
+
+# Dependências opcionais para melhorias futuras
+# matplotlib>=3.5.0          # Para visualizações
+# seaborn>=0.11.0            # Para gráficos estatísticos
+# jupyter>=1.0.0             # Para notebooks
+# ipython>=8.0.0             # Para console interativo
+
+# Para desenvolvimento e testes
+# pytest>=7.0.0              # Framework de testes
+# black>=22.0.0              # Formatação de código
+# flake8>=5.0.0              # Linting
+# mypy>=0.991                # Verificação de tipos
+
+# Para produção
+# gunicorn>=20.1.0           # Servidor WSGI
+# fastapi>=0.95.0            # Framework web (se implementar API)
+# uvicorn>=0.20.0            # Servidor ASGI para FastAPI
