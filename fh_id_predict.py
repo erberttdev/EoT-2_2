@@ -16,20 +16,20 @@ def mout_filters(fh_q_dict, dict_campo_amostral, category):
     if category == 'gols':
         atual = fh_q_dict['gols']['sum_period1']
         for i in range(1,6):
-            dict_filter_over[i] = [atual + i , get_filter(fh_q_dict, category, i),0,0]
-            dict_filter_under[i] = [atual + i, ca_category - get_filter(fh_q_dict, category, i),0, 0]
+            dict_filter_over[i] = [atual + i , get_filter(fh_q_dict, category, i)[0],0,0]
+            dict_filter_under[i] = [atual + i, get_filter(fh_q_dict, category, i)[1],0, 0]
 
     elif category == 'corners':
         atual = fh_q_dict['corners']['sum_1st_cornerkicks'][2]
         for i in range(1,6):
-            dict_filter_over[i] = [atual + i + 2, get_filter(fh_q_dict, category, i + 2),0,0]
-            dict_filter_under[i] = [atual + i + 2, ca_category - get_filter(fh_q_dict, category, i + 2),0, 0]
+            dict_filter_over[i] = [atual + i + 2, get_filter(fh_q_dict, category, i + 2)[0],0,0]
+            dict_filter_under[i] = [atual + i + 2, get_filter(fh_q_dict, category, i + 2)[1],0, 0]
 
     elif category == 'yellowcards':
         atual = fh_q_dict['yellowcards']['sum_1st_yellowcards'][2]
         for i in range(1,6):
-            dict_filter_over[i] = [atual + i , get_filter(fh_q_dict, category, i + 2),0,0]
-            dict_filter_under[i] = [atual + i, ca_category - get_filter(fh_q_dict, category, i + 2),0, 0]
+            dict_filter_over[i] = [atual + i , get_filter(fh_q_dict, category, i + 2)[0],0,0]
+            dict_filter_under[i] = [atual + i, get_filter(fh_q_dict, category, i + 2)[1],0, 0]
 
     return dict_filter_over, dict_filter_under
 

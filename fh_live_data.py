@@ -46,7 +46,9 @@ def fh_live_data():
             event_id = event['id']
             print(event_id)
             events_dict = fh_id_data(event_id)
-            events_lists.append(events_dict)
+            # events_lists.append(events_dict)
+            events_lists.append(event_id)
+
 
     return events_lists
 
