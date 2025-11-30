@@ -37,15 +37,16 @@ def fh_id_data(even_id):
     # print(list_events)
 
     events_dict = {}
-
+    # print(list_events)
     events_dict['event_id'] = list_events['id']
     events_dict['id_tournament'] = list_events['tournament']['uniqueTournament']['id']
+    events_dict['id_tournament'] = list_events['tournament']['uniqueTournament']['name']
     events_dict['home_name'] = list_events['homeTeam']['name']
     events_dict['away_name'] = list_events['awayTeam']['name']
     events_dict['home_score'] = list_events['homeScore']['period1']
     events_dict['awayScore'] = list_events['awayScore']['period1']
-    events_dict['normaltime'] = list_events['homeScore']['normaltime']
-    events_dict['normaltime'] = list_events['awayScore']['normaltime']
+    # events_dict['normaltime'] = list_events['homeScore']['normaltime']
+    # events_dict['normaltime'] = list_events['awayScore']['normaltime']
 
     try:
         events_dict['home_statistics'], events_dict['away_statistics'] = get_FH_statistcs(events_dict['event_id'])
@@ -53,6 +54,8 @@ def fh_id_data(even_id):
         print(f'Sem estatisticas para {events_dict['event_id']}')
 
     return events_dict
+
+
 
 if __name__ == "__main__":
 
