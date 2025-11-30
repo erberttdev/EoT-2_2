@@ -122,7 +122,7 @@ def get_campo_amostral(fh_q_data, fh_sum_data, category):
 def c_amostral(fh_sum_data, category):
     ca_temp = 0
     i = 0
-    while ca_temp < 100 and i <=4:
+    while ca_temp < 100 and i < 4:
         fh_q_data = apply_tolerance(fh_sum_data,threshold,i)
         ca_temp = get_campo_amostral(fh_q_data, fh_sum_data, category)
         # print(f'Tolerancia {i} ', ca_temp)
