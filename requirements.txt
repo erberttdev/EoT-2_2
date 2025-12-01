@@ -35,3 +35,6 @@ scikit-learn>=1.1.0
 # gunicorn>=20.1.0           # Servidor WSGI
 # fastapi>=0.95.0            # Framework web (se implementar API)
 # uvicorn>=0.20.0            # Servidor ASGI para FastAPI
+
+# Para agendamento de tarefas
+APScheduler>=3.10.0

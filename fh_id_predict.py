@@ -38,13 +38,19 @@ def mount_resp(dict_filter_over, dict_filter_under,dict_campo_amostral, category
     for i in range(1,len(dict_filter_over) + 1):
         prob = (dict_filter_over[i][1] * 100) / dict_campo_amostral[category]
         dict_filter_over[i][2] = prob
-        odd = 1/(prob/100)
+        if prob == 0:
+            odd = 0
+        else:
+            odd = 1/(prob/100)
         dict_filter_over[i][3] = odd
 
     for i in range(1,len(dict_filter_under) + 1):
         prob = (dict_filter_under[i][1] * 100) / dict_campo_amostral[category]
         dict_filter_under[i][2] = prob
-        odd = 1/(prob/100)
+        if prob == 0:
+            odd = 0
+        else:
+            odd = 1/(prob/100)
         dict_filter_under[i][3] = odd
 
     return dict_filter_over, dict_filter_under
