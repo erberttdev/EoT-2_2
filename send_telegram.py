@@ -38,26 +38,28 @@ def formatar_resultado(resultado):
         if res:
             info = res.get('info', {})
             partida = info.get('home_name', 'Desconhecido') + " vs " + info.get('away_name', 'Desconhecido')
-            placar = str(info.get('home_score', '0')) + " - " + str(info.get('away_score', '0'))
-            corners = str(info.get('corners_home', '0')) + " - " + str(info.get('corners_away', '0'))
-            yellow_cards = str(info.get('yellow_cards_home', '0')) + " - " + str(info.get('yellow_cards_away', '0'))
+            placar = str(info.get('home_score', 0)) + " - " + str(info.get('awayScore', 0))
+            home_stats = info.get('home_statistics', {})
+            away_stats = info.get('away_statistics', {})
+            corners = str(home_stats.get('cornerKicks', 0)) + " - " + str(away_stats.get('cornerKicks', 0))
+            yellow_cards = str(home_stats.get('yellowCards', 0)) + " - " + str(away_stats.get('yellowCards', 0))
             league = info.get('id_tournament', 'Desconhecido')
             gols_over = res.get('gols_over', [])
             gols_under = res.get('gols_under', [])
             corners_over = res.get('corners_over', [])
             corners_under = res.get('corners_under', [])
+            yellow_cards_over = res.get('yellow_cards_over', [])
+            yellow_cards_under = res.get('yellow_cards_under', [])
 
             msg = f"<b>Partida: {partida}</b>\n\n"
             if info:
                 msg += f"Torneio: {league}\n"
-                # msg += f"Partida: {partida}\n"
                 msg += f"Placar intervalo: {placar}\n"
                 msg += f"Corners intervalo: {corners}\n"
                 msg += f"C. Amarelos intervalo: {yellow_cards}\n\n"
-                # msg += f"Informações: {json.dumps(info, indent=2)}\n"
             if gols_over:
                 msg += f"Gols Over previsões:\n"
-                msg += f'Quantidade de gols atuais: {info.get('home_score',0) + info.get('away_score',0)}\n'
+                msg += f'Quantidade de gols atuais: {info.get("home_score", 0) + info.get("awayScore", 0)}\n'
                 for g in gols_over:
                     target = g[0]
                     prob = g[2]
@@ -84,8 +86,23 @@ def formatar_resultado(resultado):
                     prob = c[2]
                     odd = c[3]
                     msg += f"- Under {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+            if yellow_cards_over:
+                msg += f"Cartões Amarelos Over previsões:\n"
+                for y in yellow_cards_over:
+                    target = y[0]
+                    prob = y[2]
+                    odd = y[3]
+                    msg += f"- Over {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+            if yellow_cards_under:
+                msg += f"Cartões Amarelos Under previsões:\n"
+                for y in yellow_cards_under:
+                    target = y[0]
+                    prob = y[2]
+                    odd = y[3]
+                    msg += f"- Under {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+      
 
-
+            msg += "\n" + "-"*20 + "\n"
             mensagens.append(msg)
 
     return "\n\n".join(mensagens) if mensagens else "Nenhuma previsão válida encontrada."

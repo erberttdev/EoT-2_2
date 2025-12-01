@@ -14,13 +14,22 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
+
 def filter_min(over_under_resp, min_percent=70, min_odd=1.2):
 
     dict_gols_over = over_under_resp[1]['gols'][0]
     dict_gols_under = over_under_resp[1]['gols'][1]
+    dict_corners_over = over_under_resp[2]['corners'][0]
+    dict_corners_under = over_under_resp[2]['corners'][1]
+    dict_yellow_cards_over = over_under_resp[3]['yellowcards'][0]
+    dict_yellow_cards_under = over_under_resp[3]['yellowcards'][1]
     dict_info = over_under_resp[0]
     list_gols_over_resp = []
     list_gols_under_resp = []
+    list_corners_over_resp = []
+    list_corners_under_resp = []
+    list_yellow_cards_over_resp = []
+    list_yellow_cards_under_resp = []
     dict_resposta = {}
     for key, value in dict_gols_over.items():
         if (value[2] >= min_percent) and (value[3] >= min_odd):
@@ -37,11 +46,24 @@ def filter_min(over_under_resp, min_percent=70, min_odd=1.2):
     if len(list_gols_under_resp) > 0:
         dict_resposta['gols_under'] = list_gols_under_resp
 
-    if len(list_gols_over_resp) + len(list_gols_under_resp) > 0:
+    if len(list_corners_over_resp) > 0:
+        dict_resposta['corners_over'] = list_corners_over_resp
+    if len(list_corners_under_resp) > 0:
+        dict_resposta['corners_under'] = list_corners_under_resp
+    
+    if len(list_yellow_cards_over_resp) > 0:
+        dict_resposta['yellowcards_over'] = list_yellow_cards_over_resp
+    if len(list_yellow_cards_under_resp) > 0:
+        dict_resposta['yellowcards_under'] = list_yellow_cards_under_resp
+    
+
+    if len(list_gols_over_resp) + len(list_gols_under_resp) + len(list_corners_over_resp) + len(list_corners_under_resp) + len(list_yellow_cards_over_resp) + len(list_yellow_cards_under_resp)> 0:
         dict_resposta['info'] = dict_info
+        
 
 
     return dict_resposta
+
 
 def resposts_live(list_ids_live):
     list_resposts = []
