@@ -51,58 +51,58 @@ def formatar_resultado(resultado):
             yellow_cards_over = res.get('yellow_cards_over', [])
             yellow_cards_under = res.get('yellow_cards_under', [])
 
-            msg = f"<b>Partida: {partida}</b>\n\n"
+            msg = f"<b>🏟️ {partida}</b>\n\n"
             if info:
-                msg += f"Torneio: {league}\n"
-                msg += f"Placar intervalo: {placar}\n"
-                msg += f"Corners intervalo: {corners}\n"
-                msg += f"C. Amarelos intervalo: {yellow_cards}\n\n"
+                msg += f"🏆 Torneio: {league}\n"
+                msg += f"⚽ Placar intervalo: {placar}\n"
+                msg += f"🚩 Corners intervalo: {corners}\n"
+                msg += f"🟨 C. Amarelos intervalo: {yellow_cards}\n\n"
             if gols_over:
-                msg += f"Gols Over previsões:\n"
+                msg += f"⚽ Gols Over previsões:\n"
                 msg += f'Quantidade de gols atuais: {info.get("home_score", 0) + info.get("awayScore", 0)}\n'
                 for g in gols_over:
                     target = g[0]
                     prob = g[2]
                     odd = g[3]
-                    msg += f"- Over {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- ✅ MAIS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
             if gols_under:
-                msg += f"Gols Under previsões:\n"
+                msg += f"\n⚽ Gols Under previsões:\n"
                 for g in gols_under[:3]:
                     target = g[0]
                     prob = g[2]
                     odd = g[3]
-                    msg += f"- Under {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
             if corners_over:
-                msg += f"Corners Over previsões:\n"
+                msg += f"\n🚩 Corners Over previsões:\n"
                 for c in corners_over:
                     target = c[0]
                     prob = c[2]
                     odd = c[3]
-                    msg += f"- Over {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- ✅ MAIS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
             if corners_under:
-                msg += f"Corners Under previsões:\n"
+                msg += f"\n🚩 Corners Under previsões:\n"
                 for c in corners_under:
                     target = c[0]
                     prob = c[2]
                     odd = c[3]
-                    msg += f"- Under {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
             if yellow_cards_over:
-                msg += f"Cartões Amarelos Over previsões:\n"
+                msg += f"\n🟨 Cartões Amarelos Over previsões:\n"
                 for y in yellow_cards_over:
                     target = y[0]
                     prob = y[2]
                     odd = y[3]
-                    msg += f"- Over {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- ✅ MAIS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
             if yellow_cards_under:
-                msg += f"Cartões Amarelos Under previsões:\n"
+                msg += f"\n🟨 Cartões Amarelos Under previsões:\n"
                 for y in yellow_cards_under:
                     target = y[0]
                     prob = y[2]
                     odd = y[3]
-                    msg += f"- Under {target}: Prob {prob:.2f}%, Odd {odd:.2f}\n"
+                    msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
       
 
-            msg += "\n" + "-"*20 + "\n"
+            msg += "\n" + "-"*40 + "\n"
             mensagens.append(msg)
 
     return "\n\n".join(mensagens) if mensagens else "Nenhuma previsão válida encontrada."

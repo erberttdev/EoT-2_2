@@ -42,7 +42,8 @@ def fh_live_data():
     events_dict = {}
     events_lists = []
     for i,event in enumerate(list_events):
-        if event['status']['description'] == 'Halftime' and str(event['tournament']['uniqueTournament']['id']) in valid_tournament_ids:
+        unique_tournament = event.get('tournament', {}).get('uniqueTournament')
+        if event['status']['description'] == 'Halftime' and unique_tournament and str(unique_tournament.get('id')) in valid_tournament_ids:
             event_id = event['id']
             print(event_id)
             events_dict = fh_id_data(event_id)

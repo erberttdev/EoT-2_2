@@ -40,6 +40,21 @@ def filter_min(over_under_resp, min_percent=70, min_odd=1.2):
         if (value[2] >= min_percent) and (value[3] >= min_odd):
             list_gols_under_resp.append(dict_gols_under[key])
 
+    for key, value in dict_corners_over.items():
+        if (value[2] >= min_percent) and (value[3] >= min_odd):
+            list_corners_over_resp.append(dict_corners_over[key])
+
+    for key, value in dict_corners_under.items():
+        if (value[2] >= min_percent) and (value[3] >= min_odd):
+            list_corners_under_resp.append(dict_corners_under[key])
+
+    for key, value in dict_yellow_cards_over.items():
+        if (value[2] >= min_percent) and (value[3] >= min_odd):
+            list_yellow_cards_over_resp.append(dict_yellow_cards_over[key])
+
+    for key, value in dict_yellow_cards_under.items():
+        if (value[2] >= min_percent) and (value[3] >= min_odd):
+            list_yellow_cards_under_resp.append(dict_yellow_cards_under[key])
 
     if len(list_gols_over_resp) > 0:
         dict_resposta['gols_over'] = list_gols_over_resp
@@ -75,8 +90,8 @@ def resposts_live(list_ids_live):
     return list_resposts
 
 def main_task():
-    # list_ids_live = fh_live_data()
-    list_ids_live = [14131963, 13472611,13472608]
+    list_ids_live = fh_live_data()
+    # list_ids_live = [14109730, 14109726,13472608]
     if len(list_ids_live) > 0:
         list_resposts_live = resposts_live(list_ids_live)
         mensagem = formatar_resultado(list_resposts_live)
