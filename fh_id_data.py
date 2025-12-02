@@ -28,6 +28,7 @@ def fh_id_data(even_id):
 
     events_dict = {}
     events_dict['event_id'] = list_events['id']
+    events_dict['tournament_id'] = list_events['tournament']['uniqueTournament']['id']
     events_dict['id_tournament'] = list_events['tournament']['uniqueTournament']['name']
     events_dict['home_name'] = list_events['homeTeam']['name']
     events_dict['away_name'] = list_events['awayTeam']['name']

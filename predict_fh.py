@@ -4,6 +4,9 @@ from fh_filter import get_filter
 from fh_live_data import fh_live_data
 from fh_id_predict import over_under
 from send_telegram import enviar_mensagem_telegram, formatar_resultado
+from save_predictions import save_predictions_to_csv
+from update_predictions_results import process_predictions_csv
+from config import get_enviar_telegram
 import math
 import logging
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -135,6 +138,17 @@ def processar_e_enviar_evento(event_id, min_percent=70, min_odd=1.2):
         ])
         print(f"✅ [2/5] {num_previsoes} previsões válidas encontradas")
         
+        # 3.5. Salvar previsões no CSV
+        print(f"💾 [2.5/5] Salvando previsões no CSV...")
+        event_info = resultado_filtrado.get('info', {})
+        save_predictions_to_csv(resultado_filtrado, event_info)
+        print(f"✅ [2.5/5] Previsões salvas no CSV")
+
+        # 3.6. Atualizar resultados (GREEN/RED) para este event_id
+        print(f"🎯 [2.6/5] Atualizando resultados (GREEN/RED) no CSV para event_id={event_id}...")
+        process_predictions_csv(event_id_filter=str(event_id))
+        print(f"✅ [2.6/5] Resultados atualizados no CSV para event_id={event_id}")
+        
         # 4. Formatar resultado
         print(f"📝 [3/5] Formatando mensagem...")
         mensagem = formatar_resultado(resultado_filtrado)
@@ -146,21 +160,29 @@ def processar_e_enviar_evento(event_id, min_percent=70, min_odd=1.2):
         
         print(f"✅ [3/5] Mensagem formatada ({len(mensagem)} caracteres)")
         
-        # 5. Enviar mensagem via Telegram
-        print(f"📤 [4/5] Enviando mensagem via Telegram...")
-        sucesso = enviar_mensagem_telegram(mensagem)
-        
-        if sucesso:
-            print(f"✅ [4/5] Mensagem enviada com sucesso!")
+        # 5. Enviar mensagem via Telegram (se habilitado)
+        enviar_telegram = get_enviar_telegram()
+        if enviar_telegram:
+            print(f"📤 [4/5] Enviando mensagem via Telegram...")
+            sucesso = enviar_mensagem_telegram(mensagem)
+            
+            if sucesso:
+                print(f"✅ [4/5] Mensagem enviada com sucesso!")
+                print(f"✅ [5/5] Processamento concluído com sucesso!")
+                print(f"{'='*60}\n")
+                logger.info(f'Evento {event_id}: Processado e mensagem enviada com sucesso')
+            else:
+                print(f"❌ [4/5] Erro ao enviar mensagem")
+                print(f"{'='*60}\n")
+                logger.warning(f'Evento {event_id}: Erro ao enviar mensagem')
+            
+            return sucesso
+        else:
+            print(f"⏭️  [4/5] Envio de mensagem via Telegram desabilitado (ENVIAR_TELEGRAM != sim)")
             print(f"✅ [5/5] Processamento concluído com sucesso!")
             print(f"{'='*60}\n")
-            logger.info(f'Evento {event_id}: Processado e mensagem enviada com sucesso')
-        else:
-            print(f"❌ [4/5] Erro ao enviar mensagem")
-            print(f"{'='*60}\n")
-            logger.warning(f'Evento {event_id}: Erro ao enviar mensagem')
-        
-        return sucesso
+            logger.info(f'Evento {event_id}: Processado com sucesso (Telegram desabilitado)')
+            return True
         
     except ValueError as e:
         # Erro específico quando não há dados ou estatísticas

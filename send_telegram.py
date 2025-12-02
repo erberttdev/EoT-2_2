@@ -110,7 +110,7 @@ def formatar_resultado(resultado):
             target = g[0]
             prob = g[2]
             odd = g[3]
-            msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
+            msg += f"- ⬇️ MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
     
     if corners_over:
         msg += f"\n🚩 Corners Over previsões:\n"
@@ -126,7 +126,7 @@ def formatar_resultado(resultado):
             target = c[0]
             prob = c[2]
             odd = c[3]
-            msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
+            msg += f"- ⬇️ MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
     
     if yellow_cards_over:
         msg += f"\n🟨 Cartões Amarelos Over previsões:\n"
@@ -142,7 +142,7 @@ def formatar_resultado(resultado):
             target = y[0]
             prob = y[2]
             odd = y[3]
-            msg += f"- 🔻 MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
+            msg += f"- ⬇️ MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
 
     return msg
 

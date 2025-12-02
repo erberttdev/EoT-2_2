@@ -59,3 +59,19 @@ def get_telegram_config() -> Tuple[str, str]:
     
     return token, chat_id
 
+
+def get_enviar_telegram() -> bool:
+    """
+    Retorna se deve enviar mensagens via Telegram.
+    
+    Lê a variável de ambiente ENVIAR_TELEGRAM.
+    Valores aceitos: "sim", "s", "yes", "y", "true", "1" (case insensitive)
+    Qualquer outro valor será considerado False.
+    
+    Returns:
+        bool: True se deve enviar mensagens, False caso contrário
+    """
+    valor = os.environ.get("ENVIAR_TELEGRAM", "não").strip().lower()
+    valores_verdadeiros = ["sim", "s", "yes", "y", "true", "1"]
+    return valor in valores_verdadeiros
+
