@@ -120,7 +120,7 @@ def process_predictions_csv(
     # 1. Ler CSV
     with open(csv_filename, "r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames or [
+        fieldnames = list(reader.fieldnames) if reader.fieldnames else [
             "event_id",
             "tournament_id",
             "categoria",
@@ -128,9 +128,17 @@ def process_predictions_csv(
             "target",
             "prob",
             "resultado",
+            "version",
         ]
+        
+        # Garantir que 'version' está nos fieldnames
+        if 'version' not in fieldnames:
+            fieldnames.append('version')
 
         for row in reader:
+            # Garantir que todas as linhas tenham a coluna 'version'
+            if 'version' not in row or not row.get('version'):
+                row['version'] = 'V1'
             rows.append(row)
 
     # 2. Processar linhas com resultado vazio

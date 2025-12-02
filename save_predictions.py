@@ -24,6 +24,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
     - target: Valor alvo da previsão
     - prob: Probabilidade da previsão (em %)
     - resultado: Campo para preencher posteriormente (GREEN ou RED) - inicialmente vazio
+    - version: Versão da previsão (padrão: V1)
     
     Args:
         resultado_filtrado: Dicionário com previsões filtradas
@@ -53,7 +54,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
     
     try:
         with open(CSV_FILENAME, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['event_id', 'tournament_id', 'categoria', 'tipo_previsao', 'target', 'prob', 'resultado']
+            fieldnames = ['event_id', 'tournament_id', 'categoria', 'tipo_previsao', 'target', 'prob', 'resultado', 'version']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             # Escrever cabeçalho apenas se o arquivo não existir
@@ -76,7 +77,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
             
@@ -92,7 +94,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
             
@@ -108,7 +111,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
             
@@ -124,7 +128,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
             
@@ -140,7 +145,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
             
@@ -156,7 +162,8 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': ''
+                        'resultado': '',
+                        'version': 'V1'
                     })
                     previsoes_salvas += 1
         

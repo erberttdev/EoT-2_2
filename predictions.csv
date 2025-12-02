@@ -1,152 +1,401 @@
-event_id,tournament_id,categoria,tipo_previsao,target,prob,resultado
-14025102,17,gols,Under,4,72,GREEN
-14025102,17,escanteios,Over,9,80,RED
-14025102,17,cartão amarelo,Under,4,83,GREEN
-14025093,17,escanteios,Over,7,81,RED
-14025093,17,escanteios,Over,8,72,RED
-14025093,17,escanteios,Under,11,70,GREEN
-14025093,17,cartão amarelo,Under,4,75,GREEN
-14025111,17,gols,Under,4,74,GREEN
-14025111,17,escanteios,Over,9,74,RED
-14025111,17,cartão amarelo,Under,3,70,GREEN
-14025120,17,gols,Under,3,78,GREEN
-14025120,17,escanteios,Over,7,78,RED
-14025120,17,escanteios,Under,11,72,GREEN
-14025120,17,cartão amarelo,Under,3,77,GREEN
-14025099,17,gols,Under,3,81,GREEN
-14025099,17,escanteios,Over,5,74,RED
-14025099,17,cartão amarelo,Under,8,82,GREEN
-13981546,23,gols,Under,5,80,GREEN
-13981546,23,escanteios,Over,11,77,RED
-13981543,23,gols,Under,3,81,GREEN
-13981543,23,escanteios,Over,5,74,RED
-13981543,23,escanteios,Under,9,75,GREEN
-13981543,23,cartão amarelo,Under,5,76,GREEN
-13981549,23,gols,Under,4,73,GREEN
-13981549,23,escanteios,Over,6,82,RED
-13981549,23,cartão amarelo,Under,3,81,GREEN
-13981540,23,escanteios,Over,5,78,RED
-13981540,23,escanteios,Under,9,70,GREEN
-13981550,23,gols,Under,6,73,GREEN
-13981550,23,escanteios,Over,9,76,RED
-13981550,23,escanteios,Under,13,78,GREEN
-14083143,8,gols,Under,4,80,RED
-14083143,8,escanteios,Over,5,78,RED
-14083143,8,escanteios,Under,9,70,GREEN
-14083143,8,cartão amarelo,Under,6,80,GREEN
-14083147,8,escanteios,Over,5,73,RED
-14083147,8,cartão amarelo,Under,4,72,GREEN
-14083137,8,escanteios,Over,5,73,RED
-14083137,8,cartão amarelo,Under,3,77,GREEN
-14083139,8,escanteios,Over,7,71,RED
-14083139,8,escanteios,Under,11,80,GREEN
-14083139,8,cartão amarelo,Under,3,74,GREEN
-14083141,8,gols,Under,4,72,GREEN
-14083141,8,escanteios,Over,12,79,RED
-14083141,8,cartão amarelo,Under,3,82,GREEN
-14065162,35,escanteios,Over,5,78,RED
-14065162,35,escanteios,Under,9,70,GREEN
-14065162,35,cartão amarelo,Under,4,81,GREEN
-14065157,35,gols,Under,3,79,GREEN
-14065157,35,escanteios,Over,12,80,RED
-14065157,35,cartão amarelo,Under,2,70,GREEN
-14065160,35,gols,Under,5,77,GREEN
-14065160,35,escanteios,Over,8,75,RED
-14065160,35,escanteios,Under,12,72,GREEN
-14065160,35,cartão amarelo,Under,3,80,GREEN
-14064420,34,escanteios,Over,6,77,RED
-14064420,34,escanteios,Under,10,70,GREEN
-14064420,34,cartão amarelo,Under,4,80,GREEN
-14064430,34,gols,Under,4,80,GREEN
-14064404,34,gols,Under,3,76,GREEN
-14064404,34,escanteios,Over,6,73,RED
-14064404,34,cartão amarelo,Under,5,78,GREEN
-14064419,34,gols,Under,6,80,GREEN
-14064419,34,escanteios,Over,7,77,RED
-14064419,34,escanteios,Under,11,81,GREEN
-14064419,34,cartão amarelo,Under,3,77,GREEN
-14064428,34,gols,Under,3,80,RED
-14064428,34,escanteios,Over,5,76,RED
-14064428,34,escanteios,Under,9,72,GREEN
-14064428,34,cartão amarelo,Under,4,80,GREEN
-14131967,238,gols,Under,5,76,GREEN
-14131967,238,escanteios,Under,11,73,GREEN
-14131967,238,cartão amarelo,Under,5,74,GREEN
-14131964,238,gols,Under,6,75,GREEN
-14131964,238,escanteios,Under,9,72,GREEN
-14131964,238,cartão amarelo,Under,4,81,GREEN
-14131963,238,gols,Under,4,78,GREEN
-14131963,238,escanteios,Over,5,83,RED
-14131963,238,cartão amarelo,Under,6,80,GREEN
-14131959,238,gols,Under,6,75,GREEN
-14131959,238,escanteios,Over,6,81,RED
-14131959,238,escanteios,Under,10,70,GREEN
-14131959,238,cartão amarelo,Under,6,80,GREEN
-14053639,37,gols,Under,5,82,GREEN
-14053639,37,escanteios,Under,13,73,GREEN
-14053639,37,cartão amarelo,Under,2,70,GREEN
-14053655,37,gols,Under,4,82,RED
-14053655,37,cartão amarelo,Under,3,71,GREEN
-14053649,37,gols,Under,4,78,GREEN
-14053649,37,escanteios,Over,7,70,RED
-14053649,37,escanteios,Under,11,77,GREEN
-14053649,37,cartão amarelo,Under,3,73,GREEN
-14053636,37,gols,Under,3,79,GREEN
-14053636,37,escanteios,Over,5,74,RED
-13472611,325,gols,Under,4,79,RED
-13472611,325,escanteios,Over,8,81,RED
-13472611,325,escanteios,Under,12,72,GREEN
-13472611,325,cartão amarelo,Under,5,76,GREEN
-13472608,325,gols,Under,4,75,GREEN
-13472608,325,escanteios,Over,9,82,RED
-13472608,325,cartão amarelo,Under,2,70,GREEN
-14109724,52,escanteios,Over,7,74,RED
-14109724,52,escanteios,Under,11,75,GREEN
-14109724,52,cartão amarelo,Under,3,82,GREEN
-14109728,52,gols,Under,4,83,GREEN
-14109728,52,escanteios,Over,9,82,RED
-14109728,52,cartão amarelo,Under,5,80,GREEN
-14109730,52,escanteios,Over,5,78,RED
-14109730,52,escanteios,Under,9,71,GREEN
-14109730,52,cartão amarelo,Under,5,74,GREEN
-14109726,52,escanteios,Over,5,81,RED
-14109726,52,cartão amarelo,Under,5,77,GREEN
-14035953,38,gols,Under,3,71,GREEN
-14035953,38,escanteios,Over,8,77,RED
-14035953,38,cartão amarelo,Under,3,82,GREEN
-14035952,38,gols,Under,3,74,RED
-14035952,38,escanteios,Over,9,74,RED
-14035952,38,cartão amarelo,Under,5,80,GREEN
-14035955,38,escanteios,Over,5,77,RED
-14035955,38,escanteios,Under,9,72,GREEN
-14035955,38,cartão amarelo,Under,6,81,GREEN
-14035947,38,gols,Under,4,78,GREEN
-14035947,38,escanteios,Over,7,74,RED
-14035947,38,escanteios,Under,11,76,GREEN
-14407132,18,escanteios,Over,8,75,RED
-14407132,18,escanteios,Under,12,72,GREEN
-14407132,18,cartão amarelo,Under,5,83,GREEN
-13265929,20,gols,Under,6,75,GREEN
-13265929,20,escanteios,Over,10,80,RED
-13265929,20,cartão amarelo,Under,3,73,GREEN
-13265921,20,gols,Under,6,77,GREEN
-13265921,20,escanteios,Over,8,77,RED
-13265921,20,escanteios,Under,12,70,GREEN
-13265921,20,cartão amarelo,Under,2,70,GREEN
-13265927,20,gols,Under,6,76,GREEN
-13265927,20,escanteios,Under,7,70,GREEN
-13265927,20,escanteios,Under,8,83,GREEN
-13265927,20,cartão amarelo,Under,5,79,GREEN
-13265933,20,gols,Under,5,81,RED
-13265933,20,escanteios,Over,6,74,RED
-13265933,20,cartão amarelo,Under,4,82,GREEN
-13265922,20,escanteios,Over,12,77,RED
-13265922,20,cartão amarelo,Under,4,71,GREEN
-13265930,20,gols,Under,4,81,GREEN
-13265930,20,escanteios,Over,11,78,RED
-13265925,20,gols,Under,6,75,GREEN
-13265925,20,cartão amarelo,Under,5,72,GREEN
-13265878,20,gols,Under,6,78,RED
-13265878,20,escanteios,Over,8,71,RED
-13265878,20,escanteios,Under,12,76,GREEN
-13265878,20,cartão amarelo,Under,5,78,GREEN
+event_id,tournament_id,categoria,tipo_previsao,target,prob,resultado,version
+14025102,17,gols,Under,4,72,GREEN,V1
+14025102,17,escanteios,Over,9,80,RED,V1
+14025102,17,cartão amarelo,Under,4,83,GREEN,V1
+14025093,17,escanteios,Over,7,81,RED,V1
+14025093,17,escanteios,Over,8,72,RED,V1
+14025093,17,escanteios,Under,11,70,GREEN,V1
+14025093,17,cartão amarelo,Under,4,75,GREEN,V1
+14025111,17,gols,Under,4,74,GREEN,V1
+14025111,17,escanteios,Over,9,74,RED,V1
+14025111,17,cartão amarelo,Under,3,70,GREEN,V1
+14025120,17,gols,Under,3,78,GREEN,V1
+14025120,17,escanteios,Over,7,78,RED,V1
+14025120,17,escanteios,Under,11,72,GREEN,V1
+14025120,17,cartão amarelo,Under,3,77,GREEN,V1
+14025099,17,gols,Under,3,81,GREEN,V1
+14025099,17,escanteios,Over,5,74,RED,V1
+14025099,17,cartão amarelo,Under,8,82,GREEN,V1
+13981546,23,gols,Under,5,80,GREEN,V1
+13981546,23,escanteios,Over,11,77,RED,V1
+13981543,23,gols,Under,3,81,GREEN,V1
+13981543,23,escanteios,Over,5,74,RED,V1
+13981543,23,escanteios,Under,9,75,GREEN,V1
+13981543,23,cartão amarelo,Under,5,76,GREEN,V1
+13981549,23,gols,Under,4,73,GREEN,V1
+13981549,23,escanteios,Over,6,82,RED,V1
+13981549,23,cartão amarelo,Under,3,81,GREEN,V1
+13981540,23,escanteios,Over,5,78,RED,V1
+13981540,23,escanteios,Under,9,70,GREEN,V1
+13981550,23,gols,Under,6,73,GREEN,V1
+13981550,23,escanteios,Over,9,76,RED,V1
+13981550,23,escanteios,Under,13,78,GREEN,V1
+14083143,8,gols,Under,4,80,RED,V1
+14083143,8,escanteios,Over,5,78,RED,V1
+14083143,8,escanteios,Under,9,70,GREEN,V1
+14083143,8,cartão amarelo,Under,6,80,GREEN,V1
+14083147,8,escanteios,Over,5,73,RED,V1
+14083147,8,cartão amarelo,Under,4,72,GREEN,V1
+14083137,8,escanteios,Over,5,73,RED,V1
+14083137,8,cartão amarelo,Under,3,77,GREEN,V1
+14083139,8,escanteios,Over,7,71,RED,V1
+14083139,8,escanteios,Under,11,80,GREEN,V1
+14083139,8,cartão amarelo,Under,3,74,GREEN,V1
+14083141,8,gols,Under,4,72,GREEN,V1
+14083141,8,escanteios,Over,12,79,RED,V1
+14083141,8,cartão amarelo,Under,3,82,GREEN,V1
+14065162,35,escanteios,Over,5,78,RED,V1
+14065162,35,escanteios,Under,9,70,GREEN,V1
+14065162,35,cartão amarelo,Under,4,81,GREEN,V1
+14065157,35,gols,Under,3,79,GREEN,V1
+14065157,35,escanteios,Over,12,80,RED,V1
+14065157,35,cartão amarelo,Under,2,70,GREEN,V1
+14065160,35,gols,Under,5,77,GREEN,V1
+14065160,35,escanteios,Over,8,75,RED,V1
+14065160,35,escanteios,Under,12,72,GREEN,V1
+14065160,35,cartão amarelo,Under,3,80,GREEN,V1
+14064420,34,escanteios,Over,6,77,RED,V1
+14064420,34,escanteios,Under,10,70,GREEN,V1
+14064420,34,cartão amarelo,Under,4,80,GREEN,V1
+14064430,34,gols,Under,4,80,GREEN,V1
+14064404,34,gols,Under,3,76,GREEN,V1
+14064404,34,escanteios,Over,6,73,RED,V1
+14064404,34,cartão amarelo,Under,5,78,GREEN,V1
+14064419,34,gols,Under,6,80,GREEN,V1
+14064419,34,escanteios,Over,7,77,RED,V1
+14064419,34,escanteios,Under,11,81,GREEN,V1
+14064419,34,cartão amarelo,Under,3,77,GREEN,V1
+14064428,34,gols,Under,3,80,RED,V1
+14064428,34,escanteios,Over,5,76,RED,V1
+14064428,34,escanteios,Under,9,72,GREEN,V1
+14064428,34,cartão amarelo,Under,4,80,GREEN,V1
+14131967,238,gols,Under,5,76,GREEN,V1
+14131967,238,escanteios,Under,11,73,GREEN,V1
+14131967,238,cartão amarelo,Under,5,74,GREEN,V1
+14131964,238,gols,Under,6,75,GREEN,V1
+14131964,238,escanteios,Under,9,72,GREEN,V1
+14131964,238,cartão amarelo,Under,4,81,GREEN,V1
+14131963,238,gols,Under,4,78,GREEN,V1
+14131963,238,escanteios,Over,5,83,RED,V1
+14131963,238,cartão amarelo,Under,6,80,GREEN,V1
+14131959,238,gols,Under,6,75,GREEN,V1
+14131959,238,escanteios,Over,6,81,RED,V1
+14131959,238,escanteios,Under,10,70,GREEN,V1
+14131959,238,cartão amarelo,Under,6,80,GREEN,V1
+14053639,37,gols,Under,5,82,GREEN,V1
+14053639,37,escanteios,Under,13,73,GREEN,V1
+14053639,37,cartão amarelo,Under,2,70,GREEN,V1
+14053655,37,gols,Under,4,82,RED,V1
+14053655,37,cartão amarelo,Under,3,71,GREEN,V1
+14053649,37,gols,Under,4,78,GREEN,V1
+14053649,37,escanteios,Over,7,70,RED,V1
+14053649,37,escanteios,Under,11,77,GREEN,V1
+14053649,37,cartão amarelo,Under,3,73,GREEN,V1
+14053636,37,gols,Under,3,79,GREEN,V1
+14053636,37,escanteios,Over,5,74,RED,V1
+13472611,325,gols,Under,4,79,RED,V1
+13472611,325,escanteios,Over,8,81,RED,V1
+13472611,325,escanteios,Under,12,72,GREEN,V1
+13472611,325,cartão amarelo,Under,5,76,GREEN,V1
+13472608,325,gols,Under,4,75,GREEN,V1
+13472608,325,escanteios,Over,9,82,RED,V1
+13472608,325,cartão amarelo,Under,2,70,GREEN,V1
+14109724,52,escanteios,Over,7,74,RED,V1
+14109724,52,escanteios,Under,11,75,GREEN,V1
+14109724,52,cartão amarelo,Under,3,82,GREEN,V1
+14109728,52,gols,Under,4,83,GREEN,V1
+14109728,52,escanteios,Over,9,82,RED,V1
+14109728,52,cartão amarelo,Under,5,80,GREEN,V1
+14109730,52,escanteios,Over,5,78,RED,V1
+14109730,52,escanteios,Under,9,71,GREEN,V1
+14109730,52,cartão amarelo,Under,5,74,GREEN,V1
+14109726,52,escanteios,Over,5,81,RED,V1
+14109726,52,cartão amarelo,Under,5,77,GREEN,V1
+14035953,38,gols,Under,3,71,GREEN,V1
+14035953,38,escanteios,Over,8,77,RED,V1
+14035953,38,cartão amarelo,Under,3,82,GREEN,V1
+14035952,38,gols,Under,3,74,RED,V1
+14035952,38,escanteios,Over,9,74,RED,V1
+14035952,38,cartão amarelo,Under,5,80,GREEN,V1
+14035955,38,escanteios,Over,5,77,RED,V1
+14035955,38,escanteios,Under,9,72,GREEN,V1
+14035955,38,cartão amarelo,Under,6,81,GREEN,V1
+14035947,38,gols,Under,4,78,GREEN,V1
+14035947,38,escanteios,Over,7,74,RED,V1
+14035947,38,escanteios,Under,11,76,GREEN,V1
+14407132,18,escanteios,Over,8,75,RED,V1
+14407132,18,escanteios,Under,12,72,GREEN,V1
+14407132,18,cartão amarelo,Under,5,83,GREEN,V1
+13265929,20,gols,Under,6,75,GREEN,V1
+13265929,20,escanteios,Over,10,80,RED,V1
+13265929,20,cartão amarelo,Under,3,73,GREEN,V1
+13265921,20,gols,Under,6,77,GREEN,V1
+13265921,20,escanteios,Over,8,77,RED,V1
+13265921,20,escanteios,Under,12,70,GREEN,V1
+13265921,20,cartão amarelo,Under,2,70,GREEN,V1
+13265927,20,gols,Under,6,76,GREEN,V1
+13265927,20,escanteios,Under,7,70,GREEN,V1
+13265927,20,escanteios,Under,8,83,GREEN,V1
+13265927,20,cartão amarelo,Under,5,79,GREEN,V1
+13265933,20,gols,Under,5,81,RED,V1
+13265933,20,escanteios,Over,6,74,RED,V1
+13265933,20,cartão amarelo,Under,4,82,GREEN,V1
+13265922,20,escanteios,Over,12,77,RED,V1
+13265922,20,cartão amarelo,Under,4,71,GREEN,V1
+13265930,20,gols,Under,4,81,GREEN,V1
+13265930,20,escanteios,Over,11,78,RED,V1
+13265925,20,gols,Under,6,75,GREEN,V1
+13265925,20,cartão amarelo,Under,5,72,GREEN,V1
+13265878,20,gols,Under,6,78,RED,V1
+13265878,20,escanteios,Over,8,71,RED,V1
+13265878,20,escanteios,Under,12,76,GREEN,V1
+13265878,20,cartão amarelo,Under,5,78,GREEN,V1
+14025096,17,escanteios,Over,6,76,RED,V1
+14025108,17,gols,Under,5,78,RED,V1
+14025108,17,escanteios,Over,10,70,RED,V1
+14025108,17,escanteios,Under,14,70,GREEN,V1
+14025108,17,cartão amarelo,Under,3,77,GREEN,V1
+14025114,17,gols,Under,6,73,GREEN,V1
+14025114,17,escanteios,Over,8,70,RED,V1
+14025114,17,escanteios,Under,11,70,GREEN,V1
+14025114,17,escanteios,Under,12,80,GREEN,V1
+14025114,17,cartão amarelo,Under,5,82,GREEN,V1
+14025105,17,gols,Under,6,77,GREEN,V1
+14025105,17,cartão amarelo,Under,2,70,GREEN,V1
+14025117,17,escanteios,Over,8,74,RED,V1
+14025117,17,cartão amarelo,Under,4,82,GREEN,V1
+14025102,17,gols,Under,4,72,GREEN,V1
+14025102,17,escanteios,Over,9,80,RED,V1
+14025102,17,cartão amarelo,Under,4,83,GREEN,V1
+14025093,17,escanteios,Over,7,81,RED,V1
+14025093,17,escanteios,Over,8,72,RED,V1
+14025093,17,escanteios,Under,11,70,GREEN,V1
+14025093,17,cartão amarelo,Under,4,75,GREEN,V1
+14025111,17,gols,Under,4,74,GREEN,V1
+14025111,17,escanteios,Over,9,74,RED,V1
+14025111,17,cartão amarelo,Under,3,70,GREEN,V1
+14025120,17,gols,Under,3,78,GREEN,V1
+14025120,17,escanteios,Over,7,78,RED,V1
+14025120,17,escanteios,Under,11,72,GREEN,V1
+14025120,17,cartão amarelo,Under,3,77,GREEN,V1
+14025099,17,gols,Under,3,81,GREEN,V1
+14025099,17,escanteios,Over,5,74,RED,V1
+14025099,17,cartão amarelo,Under,8,82,GREEN,V1
+13981547,23,gols,Under,5,81,GREEN,V1
+13981547,23,escanteios,Over,6,73,RED,V1
+13981547,23,escanteios,Under,10,73,GREEN,V1
+13981547,23,cartão amarelo,Under,4,70,GREEN,V1
+13981544,23,gols,Under,4,81,GREEN,V1
+13981544,23,escanteios,Over,10,70,RED,V1
+13981544,23,cartão amarelo,Under,5,80,GREEN,V1
+13981551,23,gols,Under,6,81,GREEN,V1
+13981551,23,escanteios,Under,7,70,GREEN,V1
+13981551,23,escanteios,Under,8,83,GREEN,V1
+13981551,23,cartão amarelo,Under,4,76,GREEN,V1
+13981545,23,gols,Under,3,78,GREEN,V1
+13981545,23,escanteios,Over,6,76,RED,V1
+13981545,23,cartão amarelo,Under,4,82,GREEN,V1
+13981546,23,gols,Under,5,80,GREEN,V1
+13981546,23,escanteios,Over,11,77,RED,V1
+13981543,23,gols,Under,3,81,GREEN,V1
+13981543,23,escanteios,Over,5,74,RED,V1
+13981543,23,escanteios,Under,9,75,GREEN,V1
+13981543,23,cartão amarelo,Under,5,76,GREEN,V1
+13981549,23,gols,Under,4,73,GREEN,V1
+13981549,23,escanteios,Over,6,82,RED,V1
+13981549,23,cartão amarelo,Under,3,81,GREEN,V1
+13981540,23,escanteios,Over,5,78,RED,V1
+13981540,23,escanteios,Under,9,70,GREEN,V1
+14083140,8,escanteios,Over,6,78,RED,V1
+14083140,8,escanteios,Over,7,70,RED,V1
+14083144,8,gols,Under,6,73,GREEN,V1
+14083144,8,escanteios,Over,6,78,RED,V1
+14083144,8,escanteios,Under,10,72,GREEN,V1
+14083144,8,cartão amarelo,Under,5,76,GREEN,V1
+14083145,8,gols,Under,5,81,GREEN,V1
+14083145,8,escanteios,Over,8,75,RED,V1
+14083145,8,escanteios,Under,12,72,GREEN,V1
+14083145,8,cartão amarelo,Under,6,81,GREEN,V1
+14083135,8,gols,Under,5,78,GREEN,V1
+14083135,8,escanteios,Under,13,74,GREEN,V1
+14083135,8,cartão amarelo,Under,2,70,GREEN,V1
+14083143,8,gols,Under,4,80,RED,V1
+14083143,8,escanteios,Over,5,78,RED,V1
+14083143,8,escanteios,Under,9,70,GREEN,V1
+14083143,8,cartão amarelo,Under,6,80,GREEN,V1
+14083147,8,escanteios,Over,5,73,RED,V1
+14083147,8,cartão amarelo,Under,4,72,GREEN,V1
+14083137,8,escanteios,Over,5,73,RED,V1
+14083137,8,cartão amarelo,Under,3,77,GREEN,V1
+14083139,8,escanteios,Over,7,71,RED,V1
+14083139,8,escanteios,Under,11,80,GREEN,V1
+14083139,8,cartão amarelo,Under,3,74,GREEN,V1
+14065164,35,escanteios,Over,7,74,RED,V1
+14065164,35,escanteios,Under,11,73,GREEN,V1
+14065164,35,cartão amarelo,Under,4,80,GREEN,V1
+14065156,35,gols,Under,5,81,GREEN,V1
+14065156,35,cartão amarelo,Under,3,73,GREEN,V1
+14065159,35,gols,Under,4,82,GREEN,V1
+14065159,35,escanteios,Over,7,72,RED,V1
+14065159,35,escanteios,Under,11,78,GREEN,V1
+14065159,35,cartão amarelo,Under,3,70,GREEN,V1
+14065163,35,gols,Over,4,75,RED,V1
+14065163,35,gols,Under,7,80,GREEN,V1
+14065163,35,escanteios,Under,11,71,GREEN,V1
+14065163,35,escanteios,Under,12,81,GREEN,V1
+14065163,35,cartão amarelo,Under,3,81,GREEN,V1
+14065158,35,escanteios,Over,10,74,RED,V1
+14065158,35,escanteios,Under,14,73,GREEN,V1
+14065158,35,cartão amarelo,Under,5,75,GREEN,V1
+14065162,35,escanteios,Over,5,78,RED,V1
+14065162,35,escanteios,Under,9,70,GREEN,V1
+14065162,35,cartão amarelo,Under,4,81,GREEN,V1
+14065157,35,gols,Under,3,79,GREEN,V1
+14065157,35,escanteios,Over,12,80,RED,V1
+14065157,35,cartão amarelo,Under,2,70,GREEN,V1
+14065160,35,gols,Under,5,77,GREEN,V1
+14065160,35,escanteios,Over,8,75,RED,V1
+14065160,35,escanteios,Under,12,72,GREEN,V1
+14065160,35,cartão amarelo,Under,3,80,GREEN,V1
+14064418,34,gols,Under,3,78,GREEN,V1
+14064418,34,escanteios,Over,7,77,RED,V1
+14064418,34,escanteios,Under,11,71,GREEN,V1
+14064418,34,cartão amarelo,Under,5,79,GREEN,V1
+14064425,34,gols,Under,5,75,GREEN,V1
+14064425,34,escanteios,Over,4,70,RED,V1
+14064425,34,cartão amarelo,Under,4,80,GREEN,V1
+14064433,34,escanteios,Over,5,77,RED,V1
+14064433,34,escanteios,Under,9,72,GREEN,V1
+14064433,34,cartão amarelo,Under,4,82,GREEN,V1
+14064420,34,escanteios,Over,6,77,RED,V1
+14064420,34,escanteios,Under,10,70,GREEN,V1
+14064420,34,cartão amarelo,Under,4,80,GREEN,V1
+14064430,34,gols,Under,4,80,GREEN,V1
+14064404,34,gols,Under,3,76,GREEN,V1
+14064404,34,escanteios,Over,6,73,RED,V1
+14064404,34,cartão amarelo,Under,5,78,GREEN,V1
+14064419,34,gols,Under,6,80,GREEN,V1
+14064419,34,escanteios,Over,7,77,RED,V1
+14064419,34,escanteios,Under,11,81,GREEN,V1
+14064419,34,cartão amarelo,Under,3,77,GREEN,V1
+14064428,34,gols,Under,3,80,RED,V1
+14064428,34,escanteios,Over,5,76,RED,V1
+14064428,34,escanteios,Under,9,72,GREEN,V1
+14064428,34,cartão amarelo,Under,4,80,GREEN,V1
+14131965,238,escanteios,Over,7,78,RED,V1
+14131965,238,escanteios,Under,11,72,GREEN,V1
+14131965,238,cartão amarelo,Under,6,80,GREEN,V1
+14131966,238,gols,Under,4,80,RED,V1
+14131966,238,escanteios,Over,8,77,RED,V1
+14131966,238,cartão amarelo,Under,4,77,GREEN,V1
+14131968,238,gols,Under,3,81,RED,V1
+14131968,238,escanteios,Over,7,81,RED,V1
+14131968,238,escanteios,Over,8,72,RED,V1
+14131968,238,escanteios,Under,11,70,GREEN,V1
+14131968,238,cartão amarelo,Under,2,75,GREEN,V1
+14131961,238,gols,Under,4,80,GREEN,V1
+14131961,238,escanteios,Over,9,82,RED,V1
+14131961,238,cartão amarelo,Under,4,80,GREEN,V1
+14131967,238,gols,Under,5,76,GREEN,V1
+14131967,238,escanteios,Under,11,73,GREEN,V1
+14131967,238,cartão amarelo,Under,5,74,GREEN,V1
+14131964,238,gols,Under,6,75,GREEN,V1
+14131964,238,escanteios,Under,9,72,GREEN,V1
+14131964,238,cartão amarelo,Under,4,81,GREEN,V1
+14131963,238,gols,Under,4,75,GREEN,V1
+14131963,238,escanteios,Over,5,83,RED,V1
+14131963,238,cartão amarelo,Under,6,80,GREEN,V1
+14053633,37,gols,Under,4,83,GREEN,V1
+14053633,37,escanteios,Over,5,78,RED,V1
+14053633,37,escanteios,Under,9,71,GREEN,V1
+14053633,37,cartão amarelo,Under,5,80,GREEN,V1
+14053652,37,gols,Under,4,79,GREEN,V1
+14053652,37,escanteios,Over,10,70,RED,V1
+14053652,37,cartão amarelo,Under,6,76,GREEN,V1
+14053645,37,gols,Under,5,77,GREEN,V1
+14053645,37,escanteios,Under,10,72,GREEN,V1
+14053645,37,escanteios,Under,11,78,GREEN,V1
+14053645,37,cartão amarelo,Under,6,81,GREEN,V1
+14053639,37,gols,Under,5,82,GREEN,V1
+14053639,37,escanteios,Under,13,73,GREEN,V1
+14053639,37,cartão amarelo,Under,2,70,GREEN,V1
+14053655,37,gols,Under,4,82,RED,V1
+14053655,37,cartão amarelo,Under,3,71,GREEN,V1
+14053649,37,gols,Under,4,78,GREEN,V1
+14053649,37,escanteios,Over,7,70,RED,V1
+14053649,37,escanteios,Under,11,77,GREEN,V1
+14053649,37,cartão amarelo,Under,3,73,GREEN,V1
+14053636,37,gols,Under,3,79,GREEN,V1
+14053636,37,escanteios,Over,5,74,RED,V1
+13472617,325,gols,Under,4,74,GREEN,V1
+13472617,325,escanteios,Over,7,70,RED,V1
+13472617,325,escanteios,Under,10,80,GREEN,V1
+13472617,325,cartão amarelo,Under,4,80,GREEN,V1
+13472618,325,gols,Under,3,78,GREEN,V1
+13472618,325,escanteios,Over,8,78,RED,V1
+13472611,325,gols,Under,4,79,RED,V1
+13472611,325,escanteios,Over,8,81,RED,V1
+13472611,325,escanteios,Under,12,72,GREEN,V1
+13472611,325,cartão amarelo,Under,5,76,GREEN,V1
+13472608,325,gols,Under,4,75,GREEN,V1
+13472608,325,escanteios,Over,9,82,RED,V1
+13472608,325,cartão amarelo,Under,2,70,GREEN,V1
+14109731,52,escanteios,Over,6,74,RED,V1
+14109731,52,cartão amarelo,Under,3,78,GREEN,V1
+14109729,52,gols,Under,4,73,GREEN,V1
+14109729,52,escanteios,Over,10,73,RED,V1
+14109729,52,cartão amarelo,Under,5,79,GREEN,V1
+14109723,52,gols,Under,5,79,GREEN,V1
+14109723,52,escanteios,Over,6,73,RED,V1
+14109723,52,escanteios,Under,10,73,GREEN,V1
+14109723,52,cartão amarelo,Under,6,75,GREEN,V1
+14109725,52,gols,Under,5,79,GREEN,V1
+14109725,52,escanteios,Over,6,73,RED,V1
+14109725,52,escanteios,Under,10,73,GREEN,V1
+14109725,52,cartão amarelo,Under,3,80,GREEN,V1
+14109724,52,escanteios,Over,7,74,RED,V1
+14109724,52,escanteios,Under,11,75,GREEN,V1
+14109724,52,cartão amarelo,Under,3,82,GREEN,V1
+14109728,52,gols,Under,4,83,GREEN,V1
+14109728,52,escanteios,Over,9,82,RED,V1
+14109728,52,cartão amarelo,Under,5,80,GREEN,V1
+14035948,38,gols,Under,4,76,RED,V1
+14035948,38,escanteios,Over,6,79,RED,V1
+14035948,38,escanteios,Under,10,71,GREEN,V1
+14035948,38,cartão amarelo,Under,4,76,GREEN,V1
+14035950,38,gols,Under,4,72,GREEN,V1
+14035950,38,escanteios,Over,8,77,RED,V1
+14035950,38,cartão amarelo,Under,5,80,GREEN,V1
+14035951,38,gols,Under,3,77,GREEN,V1
+14035951,38,escanteios,Over,11,81,RED,V1
+14035951,38,cartão amarelo,Under,4,81,GREEN,V1
+14035953,38,gols,Under,3,71,GREEN,V1
+14035953,38,escanteios,Over,8,77,RED,V1
+14035953,38,cartão amarelo,Under,3,82,GREEN,V1
+14035952,38,gols,Under,3,74,RED,V1
+14035952,38,escanteios,Over,9,74,RED,V1
+14035952,38,cartão amarelo,Under,5,80,GREEN,V1
+14035955,38,escanteios,Over,5,77,RED,V1
+14035955,38,escanteios,Under,9,72,GREEN,V1
+14035955,38,cartão amarelo,Under,6,81,GREEN,V1
+14035947,38,gols,Under,4,75,GREEN,V1
+14035947,38,escanteios,Over,7,74,RED,V1
+14035947,38,escanteios,Under,11,76,GREEN,V1
+14035947,38,cartão amarelo,Under,3,70,GREEN,V1
+14059663,18,gols,Under,6,76,GREEN,V1
+14059663,18,escanteios,Over,10,80,RED,V1
+14059663,18,escanteios,Under,14,71,GREEN,V1
+14059663,18,cartão amarelo,Under,2,71,GREEN,V1
+14059669,18,gols,Under,4,82,GREEN,V1
+14059669,18,escanteios,Over,6,76,RED,V1
+14059670,18,escanteios,Over,12,76,RED,V1
+14059670,18,cartão amarelo,Under,3,81,GREEN,V1
+14059660,18,gols,Under,6,75,GREEN,V1
+14059660,18,escanteios,Under,11,71,GREEN,V1
+14059660,18,escanteios,Under,12,81,GREEN,V1
+14059660,18,cartão amarelo,Under,3,71,GREEN,V1
+14059666,18,gols,Under,4,79,,V1
+14059666,18,escanteios,Over,15,80,,V1
+14059666,18,escanteios,Over,16,80,,V1
+14059666,18,escanteios,Over,17,80,,V1
+14059666,18,cartão amarelo,Under,4,82,,V1

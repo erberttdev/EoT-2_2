@@ -75,3 +75,18 @@ def get_enviar_telegram() -> bool:
     valores_verdadeiros = ["sim", "s", "yes", "y", "true", "1"]
     return valor in valores_verdadeiros
 
+
+def get_system_version() -> str:
+    """
+    Retorna a versão atual do sistema.
+    
+    V1 - Versão inicial do sistema EoT (End of Time).
+    Esta versão estabelece a base do sistema de predições e análises,
+    incluindo funcionalidades de coleta de dados, processamento estatístico
+    e geração de previsões para eventos esportivos.
+    
+    Returns:
+        str: Nome da versão do sistema (ex: "V1")
+    """
+    return "V1"
+
