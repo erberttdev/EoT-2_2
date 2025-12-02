@@ -47,16 +47,19 @@ def fh_day_data(event_data):
     for i,event in enumerate(list_events):
         if str(event['tournament']['uniqueTournament']['id']) in valid_tournament_ids:
             event_id = event['id']
-            print(event_id)
-            events_dict = fh_id_data(event_id)
-            events_lists.append(events_dict)
+            # print(event_id)
+            # events_dict = fh_id_data(event_id)
+            events_lists.append(event_id)
+        
+    print(f'✅ Total de {len(events_lists)} partidas no dia {event_data}:\n')
+    print(events_lists)
 
     return events_lists
 
 
 if __name__ == "__main__":
 
-    event_data_txt = input("Digite a data do evento (dd-mm-aa): ").strip()
+    event_data_txt = input("Digite a data do evento (dd-mm-aaaa): ").strip()
     event_data_lst = event_data_txt.split('-')
     event_data = f'{event_data_lst[2]}-{event_data_lst[1]}-{event_data_lst[0]}'
 

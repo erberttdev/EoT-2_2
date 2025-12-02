@@ -52,7 +52,10 @@ def fh_id_data(even_id):
         events_dict['home_statistics'], events_dict['away_statistics'] = get_FH_statistcs(events_dict['event_id'])
     except:
         print(f'Sem estatisticas para {events_dict['event_id']}')
-
+        events_dict = None
+        # events_dict['home_statistics'] = {'Expected goals': 0, 'Total shots': 0, 'Shots on target': 0, 'Shots inside box': 0, 'Final third entries': 0, 'cornerKicks': 0, 'fouls': 0, 'yellowCards': 0}
+        # events_dict['away_statistics'] = {'Expected goals': 0, 'Total shots': 0, 'Shots on target': 0, 'Shots inside box': 0, 'Final third entries': 0, 'cornerKicks': 0, 'fouls': 0, 'yellowCards': 0}
+        
     return events_dict
 
 

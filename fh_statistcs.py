@@ -65,7 +65,7 @@ def get_FH_statistcs(event_id):
     try:
         home_statics_dict['Total shots'], away_statics_dict['Total shots'] = get_statistc_values(fh_statistic,'totalShotsOnGoal')
     except:
-        home_statics_dict['Total shots'], away_statics_dict['Shots on target'] = 0,0
+        home_statics_dict['Total shots'], away_statics_dict['Total shots'] = 0,0
     try:
         home_statics_dict['Shots on target'], away_statics_dict['Shots on target'] = get_statistc_values(fh_statistic,'shotsOnGoal')
     except:

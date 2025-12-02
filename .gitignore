@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 venv/
+__pycache__/fh_id_data.cpython-312.pyc
+__pycache__/fh_statistcs.cpython-312.pyc

@@ -15,28 +15,29 @@ supabase: Client = create_client(url, key)
 
 
 def main_task():
-    list_ids_live = fh_live_data()
-    # list_ids_live = [14109730, 14109726,13472608]
+    
+    list_ids_live_input = input('Digite os IDs das partidas ao vivo separados por vírgula: ').split(',')
+    list_ids_live = [int(list_id.strip()) for list_id in list_ids_live_input]
     if len(list_ids_live) > 0:
         list_resposts_live = resposts_live(list_ids_live)
         mensagem = formatar_resultado(list_resposts_live)
         enviar_mensagem_telegram(mensagem)
     else:
-        print('***** SEM PARTIDAS ENCONTRADAS *****.')
+        print('***** NENHUMA PARTIDA ENCONTRADA *****.')
 
 
 if __name__ == "__main__":
-    # Configurar logging para APScheduler
-    logging.basicConfig(level=logging.INFO)
+    # # Configurar logging para APScheduler
+    # logging.basicConfig(level=logging.INFO)
 
-    # Criar scheduler
-    scheduler = BlockingScheduler()
+    # # Criar scheduler
+    # scheduler = BlockingScheduler()
 
-    # Agendar a tarefa para executar a cada 10 minutos
-    scheduler.add_job(main_task, 'interval', minutes=10)
+    # # Agendar a tarefa para executar a cada 10 minutos
+    # scheduler.add_job(main_task, 'interval', minutes=10)
 
     # Executar a tarefa imediatamente na primeira vez
     main_task()
 
-    # Iniciar o scheduler
-    scheduler.start()
+    # # Iniciar o scheduler
+    # scheduler.start()

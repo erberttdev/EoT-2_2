@@ -1,5 +1,5 @@
 
-from fh_live_data import fh_live_data
+from fh_day_data import fh_day_data
 from send_telegram import enviar_mensagem_telegram, formatar_resultado
 from predict_fh import resposts_live
 import os
@@ -15,8 +15,13 @@ supabase: Client = create_client(url, key)
 
 
 def main_task():
-    list_ids_live = fh_live_data()
-    # list_ids_live = [14109730, 14109726,13472608]
+    
+    event_data_txt = input("Digite a data do evento (dd-mm-aaaa): ").strip()
+    event_data_lst = event_data_txt.split('-')
+    event_data = f'{event_data_lst[2]}-{event_data_lst[1]}-{event_data_lst[0]}'
+    list_ids_live = fh_day_data(event_data)
+
+
     if len(list_ids_live) > 0:
         list_resposts_live = resposts_live(list_ids_live)
         mensagem = formatar_resultado(list_resposts_live)
@@ -26,17 +31,17 @@ def main_task():
 
 
 if __name__ == "__main__":
-    # Configurar logging para APScheduler
-    logging.basicConfig(level=logging.INFO)
+    # # Configurar logging para APScheduler
+    # logging.basicConfig(level=logging.INFO)
 
-    # Criar scheduler
-    scheduler = BlockingScheduler()
+    # # Criar scheduler
+    # scheduler = BlockingScheduler()
 
-    # Agendar a tarefa para executar a cada 10 minutos
-    scheduler.add_job(main_task, 'interval', minutes=10)
+    # # Agendar a tarefa para executar a cada 10 minutos
+    # scheduler.add_job(main_task, 'interval', minutes=10)
 
     # Executar a tarefa imediatamente na primeira vez
     main_task()
 
-    # Iniciar o scheduler
-    scheduler.start()
+    # # Iniciar o scheduler
+    # scheduler.start()
