@@ -1,59 +1,45 @@
-import time
-import json
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
+from web_scraper import fetch_api_data
+from tournament_loader import load_valid_tournament_ids
 from fh_id_data import fh_id_data
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def fh_live_data():
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    url = "https://api.sofascore.com/api/v1/sport/football/events/live"
-    driver.get(url)
-    time.sleep(1)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    total_itens_txt = soup.find('pre')
-    driver.close()
-
+    """
+    Busca partidas ao vivo que estão no intervalo (Halftime).
+    
+    Returns:
+        list: Lista de IDs de eventos em intervalo
+    """
     try:
-        df = pd.read_csv('tournaments.csv')
-        valid_tournament_ids = set(df['tournament_id'].astype(str).tolist())
+        endpoint = "/api/v1/sport/football/events/live"
+        dict_content = fetch_api_data(endpoint)
+        list_events = dict_content["events"]
     except Exception as e:
-        print(f"❌ Erro ao carregar torneios: {e}")
-        valid_tournament_ids = set()
+        logger.error(f"Erro ao buscar partidas ao vivo: {e}")
+        return []
 
-    # Atribuir o conteúdo JSON da tag "pre" a uma variável
-    json_text = total_itens_txt.text
-    # Parsear o texto JSON para objeto Python
-    json_content = json.loads(json_text)
-    dict_content = dict(json_content)
-    list_events = dict_content["events"]
-
-    events_dict = {}
+    valid_tournament_ids = load_valid_tournament_ids()
     events_lists = []
-    for i,event in enumerate(list_events):
+    
+    for event in list_events:
         unique_tournament = event.get('tournament', {}).get('uniqueTournament')
-        if event['status']['description'] == 'Halftime' and unique_tournament and str(unique_tournament.get('id')) in valid_tournament_ids:
+        if (event['status']['description'] == 'Halftime' and 
+            unique_tournament and 
+            str(unique_tournament.get('id')) in valid_tournament_ids):
             event_id = event['id']
-            print(event_id)
-            events_dict = fh_id_data(event_id)
-            # events_lists.append(events_dict)
+            logger.info(f"Partida encontrada no intervalo: {event_id}")
             events_lists.append(event_id)
 
 
     return events_lists
 
+
 if __name__ == "__main__":
+    import logging
+    logging.basicConfig(level=logging.INFO)
     print(fh_live_data())
 
 

@@ -1,12 +1,9 @@
 from fh_id_data import fh_id_data
 from fh_ca import campo_amostral
-import os
-from supabase import create_client, Client
+from config import get_supabase_client, TABLE_STATICS
 import math
-table = 'table_statics'
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+
+supabase = get_supabase_client()
 
 
 def get_over_filter(fh_q_dict, category, soma):
@@ -14,7 +11,7 @@ def get_over_filter(fh_q_dict, category, soma):
             atual = fh_q_dict[category]['sum_1st_cornerkicks'][2] 
             target = atual + soma
             response = (
-            supabase.table(table)
+            supabase.table(TABLE_STATICS)
             .select("*") 
             .eq('sum_period1', fh_q_dict[category]['sum_period1'])
             .eq('sum_1st_cornerkicks', fh_q_dict[category]['sum_1st_cornerkicks'][2])
@@ -27,7 +24,7 @@ def get_over_filter(fh_q_dict, category, soma):
         atual = fh_q_dict[category]['sum_period1']
         target = atual + soma
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_period1', fh_q_dict[category]['sum_period1'])
         .gt('sum_normaltime', target)
@@ -43,7 +40,7 @@ def get_over_filter(fh_q_dict, category, soma):
         atual = fh_q_dict[category]['sum_1st_yellowcards'][2]
         target = atual + soma
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_1st_yellowcards', fh_q_dict[category]['sum_1st_yellowcards'][2])
         .gt('sum_all_yellowcards', target)                     
@@ -61,7 +58,7 @@ def get_under_filter(fh_q_dict, category, soma):
             atual = fh_q_dict[category]['sum_1st_cornerkicks'][2] 
             target = atual + soma
             response = (
-            supabase.table(table)
+            supabase.table(TABLE_STATICS)
             .select("*") 
             .eq('sum_period1', fh_q_dict[category]['sum_period1'])
             .eq('sum_1st_cornerkicks', fh_q_dict[category]['sum_1st_cornerkicks'][2])
@@ -74,7 +71,7 @@ def get_under_filter(fh_q_dict, category, soma):
         atual = fh_q_dict[category]['sum_period1']
         target = atual + soma
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_period1', fh_q_dict[category]['sum_period1'])
         .lt('sum_normaltime', target)
@@ -90,7 +87,7 @@ def get_under_filter(fh_q_dict, category, soma):
         atual = fh_q_dict[category]['sum_1st_yellowcards'][2]
         target = atual + soma
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_1st_yellowcards', fh_q_dict[category]['sum_1st_yellowcards'][2])
         .lt('sum_all_yellowcards', target)                     

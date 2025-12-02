@@ -1,64 +1,45 @@
-import time
-import json
-from datetime import datetime
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
-from fh_id_data import fh_id_data
+from web_scraper import fetch_api_data
+from tournament_loader import load_valid_tournament_ids
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def fh_day_data(event_data):
-
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    url = f"https://api.sofascore.com/api/v1/sport/football/scheduled-events/{event_data}"
-    driver.get(url)
-    time.sleep(1)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    total_itens_txt = soup.find('pre')
-    driver.close()
-
-    try:
-        df = pd.read_csv('tournaments.csv')
-        valid_tournament_ids = set(df['tournament_id'].astype(str).tolist())
-    except Exception as e:
-        print(f"❌ Erro ao carregar torneios: {e}")
-        valid_tournament_ids = set()
-
-
-    # Atribuir o conteúdo JSON da tag "pre" a uma variável
-    json_text = total_itens_txt.text
-    # Parsear o texto JSON para objeto Python
-    json_content = json.loads(json_text)
-    dict_content = dict(json_content)
-    list_events = dict_content["events"]
-
-    events_dict = {}
-    events_lists = []
-    for i,event in enumerate(list_events):
-        if str(event['tournament']['uniqueTournament']['id']) in valid_tournament_ids:
-            event_id = event['id']
-            # print(event_id)
-            # events_dict = fh_id_data(event_id)
-            events_lists.append(event_id)
+    """
+    Busca partidas agendadas para uma data específica.
+    
+    Args:
+        event_data: Data no formato 'YYYY-MM-DD'
         
-    print(f'✅ Total de {len(events_lists)} partidas no dia {event_data}:\n')
-    print(events_lists)
+    Returns:
+        list: Lista de IDs de eventos agendados para a data
+    """
+    try:
+        endpoint = f"/api/v1/sport/football/scheduled-events/{event_data}"
+        dict_content = fetch_api_data(endpoint)
+        list_events = dict_content["events"]
+    except Exception as e:
+        logger.error(f"Erro ao buscar partidas do dia {event_data}: {e}")
+        return []
 
+    valid_tournament_ids = load_valid_tournament_ids()
+    events_lists = []
+    
+    for event in list_events:
+        tournament_id = str(event['tournament']['uniqueTournament']['id'])
+        if tournament_id in valid_tournament_ids:
+            event_id = event['id']
+            events_lists.append(event_id)
+    
+    logger.info(f'✅ Total de {len(events_lists)} partidas no dia {event_data}')
     return events_lists
 
 
 if __name__ == "__main__":
-
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    
     event_data_txt = input("Digite a data do evento (dd-mm-aaaa): ").strip()
     event_data_lst = event_data_txt.split('-')
     event_data = f'{event_data_lst[2]}-{event_data_lst[1]}-{event_data_lst[0]}'

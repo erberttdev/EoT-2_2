@@ -1,10 +1,7 @@
 from fh_id_data import fh_id_data
-import os
-from supabase import create_client, Client
-table = 'table_statics'
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+from config import get_supabase_client, TABLE_STATICS
+
+supabase = get_supabase_client()
 
 threshold = [
     {
@@ -51,16 +48,42 @@ threshold = [
  ]
 
 def sum_data(fh_event_data):
+    """
+    Calcula a soma das estatísticas do primeiro tempo.
+    
+    Args:
+        fh_event_data: Dicionário com dados do evento e estatísticas
+        
+    Returns:
+        dict: Dicionário com somas das estatísticas
+        
+    Raises:
+        ValueError: Se fh_event_data for None ou não tiver estatísticas necessárias
+    """
+    if fh_event_data is None:
+        raise ValueError("Dados do evento não disponíveis (None)")
+    
+    if 'home_statistics' not in fh_event_data or 'away_statistics' not in fh_event_data:
+        raise ValueError("Estatísticas do primeiro tempo não disponíveis para este evento")
+    
+    home_stats = fh_event_data['home_statistics']
+    away_stats = fh_event_data['away_statistics']
+    
+    # Função auxiliar para obter valor seguro de estatística
+    def get_stat(stat_key, default=0):
+        return home_stats.get(stat_key, default) + away_stats.get(stat_key, default)
+    
     fh_sum_data = {}
-    fh_sum_data['sum_period1'] = fh_event_data['home_score'] +  fh_event_data['awayScore']
-    fh_sum_data['sum_expected_goals_1st'] = fh_event_data['home_statistics']['Expected goals'] +  fh_event_data['away_statistics']['Expected goals'] 
-    fh_sum_data['sum_1st_totalshotsongoal'] = fh_event_data['home_statistics']['Total shots'] +  fh_event_data['away_statistics']['Total shots'] 
-    fh_sum_data['sum_1st_shotsongoal'] = fh_event_data['home_statistics']['Shots on target'] +  fh_event_data['away_statistics']['Shots on target'] 
-    fh_sum_data['sum_1st_totalshotsinsidebox'] = fh_event_data['home_statistics']['Shots inside box'] +  fh_event_data['away_statistics']['Shots inside box'] 
-    fh_sum_data['sum_1st_finalthirdentries'] = fh_event_data['home_statistics']['Final third entries'] +  fh_event_data['away_statistics']['Final third entries'] 
-    fh_sum_data['sum_1st_cornerkicks'] = fh_event_data['home_statistics']['cornerKicks'] +  fh_event_data['away_statistics']['cornerKicks'] 
-    fh_sum_data['sum_1st_freekicks'] = fh_event_data['home_statistics']['fouls'] +  fh_event_data['away_statistics']['fouls'] 
-    fh_sum_data['sum_1st_yellowcards'] = fh_event_data['home_statistics']['yellowCards'] +  fh_event_data['away_statistics']['yellowCards'] 
+    fh_sum_data['sum_period1'] = fh_event_data.get('home_score', 0) + fh_event_data.get('awayScore', 0)
+    fh_sum_data['sum_expected_goals_1st'] = get_stat('Expected goals', 0)
+    fh_sum_data['sum_1st_totalshotsongoal'] = get_stat('Total shots', 0)
+    fh_sum_data['sum_1st_shotsongoal'] = get_stat('Shots on target', 0)
+    fh_sum_data['sum_1st_totalshotsinsidebox'] = get_stat('Shots inside box', 0)
+    fh_sum_data['sum_1st_finalthirdentries'] = get_stat('Final third entries', 0)
+    fh_sum_data['sum_1st_cornerkicks'] = get_stat('cornerKicks', 0)
+    fh_sum_data['sum_1st_freekicks'] = get_stat('fouls', 0)
+    fh_sum_data['sum_1st_yellowcards'] = get_stat('yellowCards', 0)
+    
     return fh_sum_data
 
 
@@ -82,7 +105,7 @@ def get_campo_amostral(fh_q_data, fh_sum_data, category):
 
     if category == 'corners':
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_period1', fh_sum_data['sum_period1'])
         .eq('sum_1st_cornerkicks', fh_sum_data['sum_1st_cornerkicks'])
@@ -93,7 +116,7 @@ def get_campo_amostral(fh_q_data, fh_sum_data, category):
     )
     elif category == 'gols':
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_period1', fh_sum_data['sum_period1'])
         .gte("sum_expected_goals_1st", fh_q_data['sum_expected_goals_1st'][0]).lte("sum_expected_goals_1st", fh_q_data['sum_expected_goals_1st'][1])
@@ -107,7 +130,7 @@ def get_campo_amostral(fh_q_data, fh_sum_data, category):
     elif category == 'yellowcards':
         
         response = (
-        supabase.table(table)
+        supabase.table(TABLE_STATICS)
         .select("*")
         .eq('sum_1st_yellowcards', fh_sum_data['sum_1st_yellowcards'])
         .gte("sum_1st_freekicks", fh_q_data['sum_1st_freekicks'][0]).lte("sum_1st_freekicks", fh_q_data['sum_1st_freekicks'][1])
@@ -132,12 +155,42 @@ def c_amostral(fh_sum_data, category):
     return ca_value, fh_q_data
 
 def get_fh_sum(event_id):
+    """
+    Obtém dados do evento e calcula somas das estatísticas.
+    
+    Args:
+        event_id: ID do evento
+        
+    Returns:
+        tuple: (fh_sum_data, fh_event_data)
+        
+    Raises:
+        ValueError: Se não houver dados ou estatísticas do evento
+    """
+    print(f"   └─ 🔢 Calculando somas das estatísticas do primeiro tempo...")
     fh_event_data = fh_id_data(event_id)
-    fh_sum_data = sum_data(fh_event_data)
-
+    
+    if fh_event_data is None:
+        raise ValueError(f"Evento {event_id}: Dados do evento não disponíveis")
+    
+    try:
+        fh_sum_data = sum_data(fh_event_data)
+        print(f"   └─ ✅ Somas calculadas: {fh_sum_data.get('sum_period1', 0)} gols, {fh_sum_data.get('sum_1st_cornerkicks', 0)} corners")
+    except ValueError as e:
+        raise ValueError(f"Evento {event_id}: {str(e)}")
+    
     return fh_sum_data, fh_event_data
 
 def get_ca_q_data(fh_sum_data):
+    """
+    Calcula campo amostral e dados de query para todas as categorias.
+    
+    Args:
+        fh_sum_data: Dados somados das estatísticas
+        
+    Returns:
+        tuple: (dict_campo_amostral, fh_q_dict)
+    """
     ca_gols, fh_q_gols = c_amostral(fh_sum_data, 'gols')
     ca_corners, fh_q_corners = c_amostral(fh_sum_data, 'corners')
     ca_yellowcards, fh_q_yellowcards = c_amostral(fh_sum_data, 'yellowcards')
@@ -159,11 +212,33 @@ def get_ca_q_data(fh_sum_data):
 
 
 def campo_amostral(event_id):
-    fh_sum_data, fh_event_data  = get_fh_sum(event_id)
-    dict_campo_amostral, fh_q_dict = get_ca_q_data(fh_sum_data)
-
+    """
+    Calcula campo amostral para um evento.
     
-    return dict_campo_amostral, fh_q_dict
+    Args:
+        event_id: ID do evento
+        
+    Returns:
+        tuple: (dict_campo_amostral, fh_q_dict)
+        
+    Raises:
+        ValueError: Se não houver dados ou estatísticas suficientes
+    """
+    print(f"   └─ 🎯 Calculando campo amostral...")
+    try:
+        fh_sum_data, fh_event_data = get_fh_sum(event_id)
+        dict_campo_amostral, fh_q_dict = get_ca_q_data(fh_sum_data)
+        
+        print(f"   └─ 📊 Campo amostral: Gols={dict_campo_amostral.get('gols', 0)}, "
+              f"Corners={dict_campo_amostral.get('corners', 0)}, "
+              f"Cartões={dict_campo_amostral.get('yellowcards', 0)}")
+        
+        return dict_campo_amostral, fh_q_dict
+    except ValueError as e:
+        # Re-raise ValueError para que seja capturado pelo chamador
+        raise
+    except Exception as e:
+        raise ValueError(f"Erro ao calcular campo amostral para evento {event_id}: {str(e)}")
 
 
 
