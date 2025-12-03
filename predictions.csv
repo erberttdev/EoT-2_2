@@ -394,8 +394,71 @@ event_id,tournament_id,categoria,tipo_previsao,target,prob,resultado,version
 14059660,18,escanteios,Under,11,71,GREEN,V1
 14059660,18,escanteios,Under,12,81,GREEN,V1
 14059660,18,cartão amarelo,Under,3,71,GREEN,V1
-14059666,18,gols,Under,4,79,,V1
-14059666,18,escanteios,Over,15,80,,V1
-14059666,18,escanteios,Over,16,80,,V1
-14059666,18,escanteios,Over,17,80,,V1
-14059666,18,cartão amarelo,Under,4,82,,V1
+14059666,18,gols,Under,4,79,GREEN,V1
+14059666,18,escanteios,Over,15,80,RED,V1
+14059666,18,escanteios,Over,16,80,RED,V1
+14059666,18,escanteios,Over,17,80,RED,V1
+14059666,18,cartão amarelo,Under,4,82,GREEN,V1
+14059664,18,gols,Under,3,72,RED,V1
+14059664,18,escanteios,Over,11,79,RED,V1
+14059664,18,cartão amarelo,Under,3,70,GREEN,V1
+14059665,18,gols,Under,7,72,GREEN,V1
+14059665,18,cartão amarelo,Under,2,70,GREEN,V1
+14059667,18,gols,Under,6,77,GREEN,V1
+14059667,18,escanteios,Over,6,75,RED,V1
+14059667,18,escanteios,Under,10,71,GREEN,V1
+14059667,18,cartão amarelo,Under,4,83,GREEN,V1
+14059671,18,escanteios,Under,11,74,GREEN,V1
+14059671,18,cartão amarelo,Under,4,81,GREEN,V1
+14059674,18,escanteios,Over,7,74,RED,V1
+14059674,18,escanteios,Under,11,74,GREEN,V1
+14059674,18,cartão amarelo,Under,2,71,GREEN,V1
+13265929,20,gols,Under,6,75,GREEN,V1
+13265929,20,escanteios,Over,10,80,RED,V1
+13265929,20,cartão amarelo,Under,3,73,GREEN,V1
+13265921,20,gols,Under,6,77,GREEN,V1
+13265921,20,escanteios,Over,8,77,RED,V1
+13265921,20,escanteios,Under,12,70,GREEN,V1
+13265921,20,cartão amarelo,Under,2,70,GREEN,V1
+13265927,20,gols,Under,6,76,GREEN,V1
+13265927,20,escanteios,Under,7,70,GREEN,V1
+13265927,20,escanteios,Under,8,83,GREEN,V1
+13265927,20,cartão amarelo,Under,5,79,GREEN,V1
+13265933,20,gols,Under,5,81,RED,V1
+13265933,20,escanteios,Over,6,74,RED,V1
+13265933,20,cartão amarelo,Under,4,82,GREEN,V1
+13265922,20,escanteios,Over,12,77,RED,V1
+13265922,20,cartão amarelo,Under,4,71,GREEN,V1
+13265930,20,gols,Under,4,81,GREEN,V1
+13265930,20,escanteios,Over,11,78,RED,V1
+13265925,20,gols,Under,6,75,GREEN,V1
+13265925,20,cartão amarelo,Under,5,72,GREEN,V1
+13265878,20,gols,Under,6,78,RED,V1
+13265878,20,escanteios,Over,8,71,RED,V1
+13265878,20,escanteios,Under,12,76,GREEN,V1
+13265878,20,cartão amarelo,Under,5,78,GREEN,V1
+14025123,17,gols,Under,3,81.54158215010142,
+14025123,17,escanteios,Over,7,77.3109243697479,
+14025123,17,escanteios,Under,11,73.10924369747899,
+14025123,17,cartão amarelo,Under,5,80.0,
+14025135,17,gols,Under,7,75.26881720430107,
+14025135,17,cartão amarelo,Under,3,82.63157894736842,
+14861167,18,gols,Under,3,83.01886792452831,
+14861167,18,escanteios,Over,8,79.3103448275862,
+14861167,18,cartão amarelo,Under,5,77.61904761904762,
+14861167,18,gols,Under,3,83.01886792452831,
+14861167,18,escanteios,Over,8,79.3103448275862,
+14861167,18,cartão amarelo,Under,5,77.61904761904762,
+14083215,8,gols,Under,5,79.7752808988764,
+14083215,8,escanteios,Over,6,76.57657657657657,
+14025141,17,gols,Under,3,81.2316715542522,
+14025141,17,escanteios,Over,9,77.34375,
+14025141,17,cartão amarelo,Under,4,82.71308523409364,
+14083215,8,gols,Under,5,79.7752808988764,
+14083215,8,escanteios,Over,6,76.57657657657657,
+13472621,325,escanteios,Over,10,75.22123893805309,
+13472621,325,escanteios,Under,14,75.22123893805309,
+13472621,325,cartão amarelo,Under,4,75.20661157024793,
+13472621,325,escanteios,Over,10,75.22123893805309,
+13472621,325,escanteios,Under,14,75.22123893805309,
+13472621,325,cartão amarelo,Under,4,75.20661157024793,

@@ -71,7 +71,7 @@ def get_enviar_telegram() -> bool:
     Returns:
         bool: True se deve enviar mensagens, False caso contrário
     """
-    valor = os.environ.get("ENVIAR_TELEGRAM", "não").strip().lower()
+    valor = os.environ.get("ENVIAR_TELEGRAM", "sim").strip().lower()
     valores_verdadeiros = ["sim", "s", "yes", "y", "true", "1"]
     return valor in valores_verdadeiros
 

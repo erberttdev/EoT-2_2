@@ -5,7 +5,6 @@ from fh_live_data import fh_live_data
 from fh_id_predict import over_under
 from send_telegram import enviar_mensagem_telegram, formatar_resultado
 from save_predictions import save_predictions_to_csv
-from update_predictions_results import process_predictions_csv
 from config import get_enviar_telegram
 import math
 import logging
@@ -143,11 +142,6 @@ def processar_e_enviar_evento(event_id, min_percent=70, min_odd=1.2):
         event_info = resultado_filtrado.get('info', {})
         save_predictions_to_csv(resultado_filtrado, event_info)
         print(f"✅ [2.5/5] Previsões salvas no CSV")
-
-        # 3.6. Atualizar resultados (GREEN/RED) para este event_id
-        print(f"🎯 [2.6/5] Atualizando resultados (GREEN/RED) no CSV para event_id={event_id}...")
-        process_predictions_csv(event_id_filter=str(event_id))
-        print(f"✅ [2.6/5] Resultados atualizados no CSV para event_id={event_id}")
         
         # 4. Formatar resultado
         print(f"📝 [3/5] Formatando mensagem...")

@@ -24,7 +24,6 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
     - target: Valor alvo da previsão
     - prob: Probabilidade da previsão (em %)
     - resultado: Campo para preencher posteriormente (GREEN ou RED) - inicialmente vazio
-    - version: Versão da previsão (padrão: V1)
     
     Args:
         resultado_filtrado: Dicionário com previsões filtradas
@@ -54,7 +53,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
     
     try:
         with open(CSV_FILENAME, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['event_id', 'tournament_id', 'categoria', 'tipo_previsao', 'target', 'prob', 'resultado', 'version']
+            fieldnames = ['event_id', 'tournament_id', 'categoria', 'tipo_previsao', 'target', 'prob', 'resultado']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             # Escrever cabeçalho apenas se o arquivo não existir
@@ -69,7 +68,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                 for previsao in resultado_filtrado['gols_over']:
                     # previsao é uma lista: [target, quantidade, probabilidade, odd]
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -77,8 +76,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
             
@@ -86,7 +84,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
             if 'gols_under' in resultado_filtrado:
                 for previsao in resultado_filtrado['gols_under']:
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -94,8 +92,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
             
@@ -103,7 +100,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
             if 'corners_over' in resultado_filtrado:
                 for previsao in resultado_filtrado['corners_over']:
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -111,8 +108,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
             
@@ -120,7 +116,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
             if 'corners_under' in resultado_filtrado:
                 for previsao in resultado_filtrado['corners_under']:
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -128,8 +124,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
             
@@ -137,7 +132,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
             if 'yellowcards_over' in resultado_filtrado:
                 for previsao in resultado_filtrado['yellowcards_over']:
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -145,8 +140,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Over',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
             
@@ -154,7 +148,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
             if 'yellowcards_under' in resultado_filtrado:
                 for previsao in resultado_filtrado['yellowcards_under']:
                     target = previsao[0]
-                    prob = int(previsao[2]) if previsao[2] is not None else 0
+                    prob = previsao[2]
                     writer.writerow({
                         'event_id': event_id,
                         'tournament_id': tournament_id if tournament_id else '',
@@ -162,8 +156,7 @@ def save_predictions_to_csv(resultado_filtrado, event_info):
                         'tipo_previsao': 'Under',
                         'target': target,
                         'prob': prob,
-                        'resultado': '',
-                        'version': 'V1'
+                        'resultado': ''
                     })
                     previsoes_salvas += 1
         
