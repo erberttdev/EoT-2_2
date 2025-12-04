@@ -32,8 +32,13 @@ def fh_id_data(even_id):
     events_dict['id_tournament'] = list_events['tournament']['uniqueTournament']['name']
     events_dict['home_name'] = list_events['homeTeam']['name']
     events_dict['away_name'] = list_events['awayTeam']['name']
-    events_dict['home_score'] = list_events['homeScore']['period1']
-    events_dict['awayScore'] = list_events['awayScore']['period1']
+    try:
+        events_dict['home_score'] = list_events['homeScore']['period1']
+        events_dict['awayScore'] = list_events['awayScore']['period1']
+    except KeyError:
+        print(f"   └─ ⚠️  Dados de placar não disponíveis para o evento {even_id}")
+        logger.warning(f"Dados de placar não disponíveis para o evento {even_id}")
+        return None
     
     print(f"   └─ 📋 Partida: {events_dict['home_name']} {events_dict['home_score']}-{events_dict['awayScore']} {events_dict['away_name']}")
     print(f"   └─ 🏆 Torneio: {events_dict['id_tournament']}")

@@ -102,7 +102,7 @@ def formatar_resultado(resultado):
             target = g[0]
             prob = g[2]
             odd = g[3]
-            msg += f"- ✅ MAIS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
+            msg += f"- ✅ MAIS que {target + 0.5}: Prob {int(prob)}%, Odd {odd:.2f}\n"
     
     if gols_under:
         msg += f"\n⚽ Gols Under previsões:\n"
@@ -110,7 +110,7 @@ def formatar_resultado(resultado):
             target = g[0]
             prob = g[2]
             odd = g[3]
-            msg += f"- ⬇️ MENOS que {target}: Prob {int(prob)}%, Odd {odd:.2f}\n"
+            msg += f"- ⬇️ MENOS que {target - 0.5}: Prob {int(prob)}%, Odd {odd:.2f}\n"
     
     if corners_over:
         msg += f"\n🚩 Corners Over previsões:\n"
